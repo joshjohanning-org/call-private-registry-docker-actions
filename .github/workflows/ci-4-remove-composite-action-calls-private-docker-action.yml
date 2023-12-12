@@ -1,0 +1,30 @@
+name: ci-4-remove-composite-action-calls-private-docker-action
+
+run-name: call composite action that contains private docker action 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          repository: joshjohanning-org/composite-action-private-registry-docker-actions
+          path: local-actions
+      - run: ls -R
+      - name: auth to acr
+        run: echo ${{ secrets.ACR_PASSWORD }} | docker login --username test123j --password-stdin test123j.azurecr.io
+      - uses: ./local-actions/composite-action-private-registry-docker-actions
