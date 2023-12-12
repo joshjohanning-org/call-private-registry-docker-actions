@@ -1,6 +1,6 @@
 name: ci-4-remove-composite-action-calls-private-docker-action
 
-run-name: call composite action that contains private docker action 
+run-name: clone remote composite action repo to call private docker action 
 
 on:
   push:
@@ -19,6 +19,7 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
+          repositories: joshjohanning-org/composite-action-private-registry-docker-actions
       - uses: actions/checkout@v3
         with:
           token: ${{ steps.app-token.outputs.token }}
