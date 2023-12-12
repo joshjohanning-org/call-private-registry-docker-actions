@@ -1,4 +1,4 @@
-name: CI
+name: ci-1-private-docker-action
 
 run-name: call private docker action directly 
 

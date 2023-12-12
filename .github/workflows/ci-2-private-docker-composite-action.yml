@@ -1,4 +1,4 @@
-name: CI-2
+name: ci-2-private-docker-composite-action
 
 run-name: call composite action that contains private docker action 
 

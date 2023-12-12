@@ -1,0 +1,17 @@
+name: ci-3-local-composite-action-calls-private-docker-action
+
+run-name: call composite action that contains private docker action 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: joshjohanning-org/composite-action-private-registry-docker-actions@main
