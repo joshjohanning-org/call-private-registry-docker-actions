@@ -9,6 +9,9 @@ inputs:
     description: 'test'
     required: true
     default: 'okay'
+  acr-secret:
+    description: 'secret to acr'
+    required: true
 outputs:
   random-number:
     description: "Random number"
@@ -20,6 +23,12 @@ runs:
       shell: bash
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
+    - name: mask secret
+      run: echo "::add-mask::${{ inputs.acr-secret }}"
+      shell: bash
+    - name: auth to acr
+      shell: bash
+      run: echo ${{ inputs.acr-secret }} | docker login --username test123j --password-stdin test123j.azurecr.io
     - uses: joshjohanning-org/CodeCoverageSummary@master
     - id: random-number-generator
       run: echo "random-id=$(echo $RANDOM)" >> $GITHUB_OUTPUT
