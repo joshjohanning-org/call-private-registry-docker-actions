@@ -1,5 +1,7 @@
 name: CI
 
+run-name: call private docker action directly 
+
 on:
   push:
     branches: [ "main" ]
@@ -12,5 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: joshjohanning-org/CodeCoverageSummary@master
