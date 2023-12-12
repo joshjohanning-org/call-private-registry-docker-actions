@@ -19,8 +19,8 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
-          # repositories: joshjohanning-org/composite-action-private-registry-docker-actions
           owner: joshjohanning-org
+          # repositories: composite-action-private-registry-docker-actions
       - uses: actions/checkout@v3
         with:
           token: ${{ steps.app-token.outputs.token }}
@@ -29,4 +29,5 @@ jobs:
       - run: ls -R
       - name: auth to acr
         run: echo ${{ secrets.ACR_PASSWORD }} | docker login --username test123j --password-stdin test123j.azurecr.io
-      - uses: ./local-actions/composite-action-private-registry-docker-actions
+      - uses: ./local-actions
+        continue-on-error: true
