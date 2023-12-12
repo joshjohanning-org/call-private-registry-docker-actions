@@ -20,8 +20,8 @@ jobs:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
           owner: joshjohanning-org
-          # repositories: composite-action-private-registry-docker-actions
-      - uses: actions/checkout@v3
+      - name: checkout actions repo
+        uses: actions/checkout@v3
         with:
           token: ${{ steps.app-token.outputs.token }}
           repository: joshjohanning-org/composite-action-private-registry-docker-actions
