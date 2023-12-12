@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: joshjohanning-org/composite-action-private-registry-docker-actions@main
+      - uses: ./composite-action-private-registry-docker-actions
