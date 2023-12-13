@@ -1,6 +1,6 @@
-name: ci-5-nest-composite-action-in-composite-action
+name: ci-5-nest-composite-action-in-local-composite-action
 
-run-name: nest composite action in composite action
+run-name: nest composite action in local composite action
 
 on:
   push:
