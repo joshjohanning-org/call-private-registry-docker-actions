@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: joshjohanning-org/composite-action-private-registry-docker-actions/nested-composite-action-better/1-action@main
+      - name: code-coverage-action
+        uses: joshjohanning-org/composite-action-private-registry-docker-actions/nested-composite-action-better/1-action@main
         with:
           password:  ${{ secrets.ACR_PASSWORD }}
+        continue-on-error: true
