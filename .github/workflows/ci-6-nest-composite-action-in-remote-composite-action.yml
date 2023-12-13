@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: joshjohanning-org/composite-action-private-registry-docker-actions/nest-remote-composite-action-in-composite-action@main
+      - uses: joshjohanning-org/composite-action-private-registry-docker-actions/nested-composite-action@main
         with:
           acr-secret:  ${{ secrets.ACR_PASSWORD }}
         continue-on-error: true
