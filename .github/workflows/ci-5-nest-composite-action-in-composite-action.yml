@@ -1,0 +1,19 @@
+name: ci-5-nest-composite-action-in-composite-action
+
+run-name: nest composite action in composite action
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./nest-local-composite-action-in-composite-action
+        with:
+          acr-secret:  ${{ secrets.ACR_PASSWORD }}
