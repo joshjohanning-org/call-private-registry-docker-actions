@@ -19,9 +19,7 @@ runs:
     - name: auth to acr
       shell: bash
       run: echo ${{ inputs.acr-secret }} | docker login --username test123j --password-stdin test123j.azurecr.io
-    - run: echo "${{ github.action_path }}"
-      shell: bash
     - run: ls -R ${{ github.action_path }}
       shell: bash
     - name: run the second composite action
-      uses: ${{ github.action_path }}/nest-local-composite-action-in-composite-action/the-actual-docker-action
+      uses: ./nest-local-composite-action-in-composite-action/the-actual-docker-action
