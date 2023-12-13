@@ -17,4 +17,3 @@ jobs:
       - uses: joshjohanning-org/composite-action-private-registry-docker-actions/nested-composite-action-better/1-action@main
         with:
           password:  ${{ secrets.ACR_PASSWORD }}
-        continue-on-error: true
