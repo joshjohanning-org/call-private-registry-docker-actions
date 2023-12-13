@@ -1,6 +1,6 @@
-name: ci-5-nest-composite-action-in-remote-composite-action
+name: ci-6-nest-composite-action-in-remote-composite-action
 
-run-name: nest composite action in temo composite action
+run-name: nest composite action in remote composite action
 
 on:
   push:
