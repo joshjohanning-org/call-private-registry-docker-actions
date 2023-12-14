@@ -1,4 +1,4 @@
-name: ci-4-remove-composite-action-calls-private-docker-action
+name: ci-4-remote-composite-action-calls-private-docker-action
 
 run-name: clone remote composite action repo to call private docker action 
 
