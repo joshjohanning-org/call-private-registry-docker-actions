@@ -1,0 +1,20 @@
+name: ci-6.1-nest-composite-action-in-remote-composite-action-more-simple
+
+run-name: nest composite action in remote composite action (more simple)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: simple-docker-action
+        uses: joshjohanning-org/composite-action-private-registry-docker-actions@main
+        with:
+          acr-secret:  ${{ secrets.ACR_PASSWORD }}
